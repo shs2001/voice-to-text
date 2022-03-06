@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wather Checker</title>
+    <link rel="icon" href="image/weather.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome-free-5.15.2-web/css/all.min.css">
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 mt-5">
+                <div class="card text-left shadow-lg p-2 mt-5">
+                    <div class="header p-3 row">
+                        <img class="img-fluid col-md-4" src="image/weather.png" alt="weather">
+                        <div class="text col-md-8">
+                            <h2><span>Live</span> Weather</h2>
+                            <p>It is a simple web application for check weather.</p>
+                        </div>
+                    </div>
+                    <hr class=" mt-1 mb-0">
+                  <div class="card-body">
+                      <select class="form-control" id="city">
+                        <option value="6413898">Ahmad Hossain para</option>
+                        <option value="1185283">Badarganj</option>
+                        <option value="1212152">Badarpasa</option>
+                        <option value="1185276">Bajitpur</option>
+                        <option value="1185270">Bandarban</option>
+                        <option value="1210997">Bangladesh</option>
+                        <option value="7701342">Bangshal</option>
+                        <option value="1185274">Baniachang</option>
+                        <option value="1336137">Barisal</option>
+                        <option value="1337229">Barisal Division</option>
+                        <option value="1209562">Bera</option>
+                        <option value="1209308">Bhagyakul</option>
+                        <option value="1185263">Bhairab Bazar</option>
+                        <option value="1477498">Bhandaria</option>
+                        <option value="1185260">Bhatpara Abhaynagar</option>
+                        <option value="1185262">Bheramara</option>
+                        <option value="1336136">Bhola</option>
+                        <option value="6414184">Bibir Hat</option>
+                        <option value="1337233">Bogra</option>
+                        <option value="1210565">Burhanuddin</option>
+                        <option value="1207870">Chak Brindaban</option>
+                        <option value="1207339">Chandpur</option>
+                        <option value="1207047">Char Bhadrasan</option>
+                        <option value="6415551">Charpara</option>
+                        <option value="1185249">Chhagalnaiya</option>
+                        <option value="1185254">Chhatak</option>
+                        <option value="1185247">Chilmari</option>
+                        <option value="1337200">Chittagong</option>
+                        <option value="1205733">Chittagong</option>
+                        <option value="1185186">Comilla</option>
+                        <option value="1336134">Cox’s Bazar</option>
+                        <option value="1337178">Dhaka District</option>
+                        <option selected value="1185241">Dhaka</option>
+                        <option value="1337179">Dhaka Division</option>
+                        <option value="1203891">Dinajpur</option>
+                        <option value="1185100">Dohar</option>
+                        <option value="1204206">Dopakul</option>
+                        <option value="1203344">Faridpur</option>
+                        <option value="1185224">Feni</option>
+                        <option value="1185218">Gafargaon</option>
+                        <option value="7921384">Gaibandha</option>
+                        <option value="7486211">Gallamari</option>
+                        <option value="1185210">Gaurnadi</option>
+                        <option value="1185209">Habiganj</option>
+                        <option value="1201753">Hajiganj</option>
+                        <option value="1200902">Huzrapur</option>
+                        <option value="1185207">Ishurdi</option>
+                        <option value="1200682">Iswardi</option>
+                        <option value="1185106">Jamalpur</option>
+                        <option value="1336140">Jessore</option>
+                        <option value="1185204">Jhingergacha</option>
+                        <option value="1185206">Joypur Hat</option>
+                        <option value="1185272">Kalia</option>
+                        <option value="1185199">Kaliganj</option>
+                        <option value="1197895">Kesabpur</option>
+                        <option value="1185252">Khagrachhari</option>
+                        <option value="1336135">Khulna</option>
+                        <option value="1337210">Khulna Division</option>
+                        <option value="1337249">Kishorganj</option>
+                        <option value="7487343">Kristopur</option>
+                        <option value="1185191">Kushtia</option>
+                        <option value="1185183">Laksham</option>
+                        <option value="1196292">Lakshmipur</option>
+                        <option value="7488262">Lalbagkhamar</option>
+                        <option value="1185251">Lalmohan</option>
+                        <option value="1185181">Lalmonirhat</option>
+                        <option value="6415935">Lamuni Para</option>
+                        <option value="1337245">Madaripur</option>
+                        <option value="1462681">Manikchari</option>
+                        <option value="1348441">Manikganj</option>
+                        <option value="1194898">Manoharpur</option>
+                        <option value="1185173">Mathba</option>
+                        <option value="1185166">Maulavi Bazar</option>
+                        <option value="1185171">Mehendiganj</option>
+                        <option value="1185165">Mirzapur</option>
+                        <option value="1185167">Morrelgonj</option>
+                        <option value="1185164">Muktagacha</option>
+                        <option value="1185162">Mymensingh</option>
+                        <option value="1193823">Nabinagar</option>
+                        <option value="1185160">Nageswari</option>
+                        <option value="1185156">Nalchiti</option>
+                        <option value="1185293">Narail</option>
+                        <option value="1185155">Narayanganj</option>
+                        <option value="1193239">Narayanpur</option>
+                        <option value="1185117">Narsingdi</option>
+                        <option value="1337240">Nawabganj</option>
+                        <option value="1185116">Netrakona</option>
+                        <option value="1336143">Pabna</option>
+                        <option value="1191368">Palang</option>
+                        <option value="1185141">Panchagarh</option>
+                        <option value="1192691">Panchgaon</option>
+                        <option value="1192366">Par Naogaon</option>
+                        <option value="1185149">Parbatipur</option>
+                        <option value="1185148">Patiya</option>
+                        <option value="1191139">Phultala</option>
+                        <option value="1337239">Pirgaaj</option>
+                        <option value="1185138">Pirojpur</option>
+                        <option value="6413609">Purba Firoz Shah Colony</option>
+                        <option value="1190716">Purbapara</option>
+                        <option value="1185236">Raipur</option>
+                        <option value="1185128">Rajshahi</option>
+                        <option value="1337166">Rajshahi Division</option>
+                        <option value="1185127">Ramganj</option>
+                        <option value="1185188">Rangpur</option>
+                        <option value="7671048">Rangpur Division</option>
+                        <option value="1189638">Raojan</option>
+                        <option value="6545349">Saidpur</option>
+                        <option value="1189056">Sakhipur</option>
+                        <option value="1188909">Samair</option>
+                        <option value="1185120">Sandwip</option>
+                        <option value="1185239">Sarankhola</option>
+                        <option value="1188569">Sarishabari</option>
+                        <option value="1336133">Satkania</option>
+                        <option value="1185111">Satkhira</option>
+                        <option value="1188348">Sehara</option>
+                        <option value="1185121">Shahzadpur</option>
+                        <option value="1337248">Sherpur</option>
+                        <option value="1185108">Shibganj</option>
+                        <option value="1185115">Sirajganj</option>
+                        <option value="1187197">Sripur</option>
+                        <option value="1185099">Sylhet</option>
+                        <option value="1477362">Sylhet Division</option>
+                        <option value="1186675">Takipur</option>
+                        <option value="1336144">Tangail</option>
+                        <option value="1185095">Teknaf</option>
+                        <option value="1185092">Thakurgaon</option>
+                        <option value="1185958">Tulapara</option>
+                        <option value="1185098">Tungi</option>
+                        <option value="1185920">Tungipara</option>
+                        <option value="1185755">Unaisar</option>
+                        <option value="1205481">Uttar Char Fasson</option>
+                      </select>
+                      <hr class="">
+                      <div class="details">
+                          <div class="left">
+                            <img id="wicon" src="http://openweathermap.org/img/w/02d.png" alt="">
+                            <h3 id="temp"></h3>
+                            <h4 id="name"></h4>
+                          </div>
+                          <div class="right">
+                            <p>Max <strong id="high">0</strong>&deg;c / Min <strong id="low">0</strong>&deg;c</p>
+                            <p id="wind"></p>
+                            <p id="sunrise"> </p>
+                            <p id="sunset"></p>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>  
+    <script src="js/app.js"></script>
+</body>
+</html>
