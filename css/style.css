@@ -13,12 +13,11 @@ body{
 p{
   margin-bottom: 0;
 }
-.sms-img{
+.heading-img{
   height: 100px;
   width: 100px;
   margin: 0 auto;
   display: block;
-  margin-bottom: 10px;
 }
 .heading{
   text-align: center;
@@ -29,6 +28,209 @@ p{
 .heading span{  
   color: red;
 }
-.balance{
-  font-size: 13px !important ;
+
+.speechbtn {
+  height: 100px;
+  width: 100px;
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display:block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  word-break: keep-all;
+  z-index: 0;
+  margin: 0 auto;
+}
+
+
+.speechbtn:before,
+.speechbtn:after {
+  border-radius: 80px;
+}
+
+.speechbtn:before {
+  background-color: rgba(249, 58, 19, .32);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.speechbtn:after {
+  background-color: initial;
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  bottom: 10px;
+  content: "";
+  display: block;
+  left: 10px;
+  overflow: hidden;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.speechbtn:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+}
+
+.speechbtn:active:not(:disabled) {
+  color: #ccc;
+}
+
+.speechbtn:active:not(:disabled):after {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+}
+
+.speechbtn:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+.speechbtn.active:after {
+  animation: talking 0.5s infinite alternate;
+}
+
+@keyframes talking {
+  0%{
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      top: 10px;
+  }
+  100%{
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+  }
+}
+#copy{
+  margin: 10px auto;
+}
+
+
+
+
+
+/* body animation */
+body{
+  background: #3399ff;
+}
+
+.ripple-background{
+  position: absolute;
+}
+.circle{
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  animation: ripple 15s infinite;
+  box-shadow: 0px 0px 1px 0px #508fb9;
+}
+
+.small{
+  width: 200px;
+  height: 200px;
+  left: -100px;
+  bottom: -100px;
+}
+
+.medium{
+  width: 400px;
+  height: 400px;
+  left: -200px;
+  bottom: -200px;
+}
+
+.large{
+  width: 600px;
+  height: 600px;
+  left: -300px;
+  bottom: -300px;
+}
+
+.xlarge{
+  width: 800px;
+  height: 800px;
+  left: -400px;
+  bottom: -400px;
+}
+
+.xxlarge{
+  width: 1000px;
+  height: 1000px;
+  left: -500px;
+  bottom: -500px;
+}
+
+.shade1{
+  opacity: 0.2;
+}
+.shade2{
+  opacity: 0.5;
+}
+
+.shade3{
+  opacity: 0.7;
+}
+
+.shade4{
+  opacity: 0.8;
+}
+
+.shade5{
+  opacity: 0.9;
+}
+
+@keyframes ripple{
+  0%{
+    transform: scale(0.8);
+  }
+  
+  50%{
+    transform: scale(1.2);
+  }
+  
+  100%{
+    transform: scale(0.8);
+  }
 }
