@@ -26,9 +26,14 @@ $(document).ready(function () {
                             $("#send").html('Send').prop('disabled', false);
                             if (result.error == 0) {
                                 $(".result").html('<div class="alert alert-success alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> <span class="sr-only">Close</span> </button> <strong>Successfull !</strong> <p class="mb-0">Your messege {'+ msg.val() +'} successfully send to ' + number.val() + '</p></div>');
-                            } else {
+                            }
+                            else if(result.error == 417){
+                                $(".result").html('<div class="alert alert-info alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> <span class="sr-only">Close</span> </button> <strong>Insufficient balance!</strong> <p class="mb-0">To get some balance <a href="https://sms.net.bd/signup/" class="text-danger" target="_blank"><u>create account here</u></a> and copy API Key. </p></div>');
+                            } 
+                            else {
                                 $(".result").html('<div class="alert alert-danger alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> <span class="sr-only">Close</span> </button> <strong>Failed !</strong> <p class="mb-0">Something went Wrong!</p></div>');
                             }
+                            console.log(result);
                             $("#number,#msg").val('');
                         }
                     });
@@ -55,6 +60,9 @@ $(document).ready(function () {
                         function show_float_val(val, upto = 2) {
                             var val = parseFloat(val);
                             return val.toFixed(upto);
+                        }
+                        if(bal <= 0.5){
+                            $("#lowbalance").html('low balance')
                         }
                         $("#balance").html(show_float_val(bal) + ' TK');
                     }
