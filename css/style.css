@@ -13,31 +13,22 @@ body{
 p{
   margin-bottom: 0;
 }
-.details{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-.details p{
-  font-size: 15px;
-}
-.details strong{
-  color: red;
-}
-.header img{
+.sms-img{
   height: 100px;
-  width: 150px;
-  /* margin-right: 20px; */
+  width: 100px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 10px;
 }
-.header .text h2{
+.heading{
+  text-align: center;
+  font-family: 'Poppins',sans-serif;
   font-size: 40px;
   font-weight: 600;
+}
+.heading span{  
   color: red;
 }
-.header .text h2 span{
-  color: black;
-}
-#temp sub{
-  font-size: 13px;
-  color: orangered;
+.balance{
+  font-size: 13px !important ;
 }

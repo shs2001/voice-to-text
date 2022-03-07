@@ -1,36 +1,69 @@
 $(document).ready(function () {
-    $(".details").hide();
-    var apikey = "6f4aeb826dd65c7e1f151c1f64fa8992";
-    $("#city").on('change', function () {
-        var id = $("#city").val();
-        $(".details").hide('100');
-        $.ajax({
-            type: "get",
-            url: "https://api.openweathermap.org/data/2.5/weather?id=" + id + "&appid=" + apikey,
-            success: function (data) {
-                $("#wicon").attr('src', "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
-                $("#temp").html(Math.floor(Math.floor(data.main.temp) - 273.15) + "&deg; C" + "<sub>("+data.weather[0].main+")</sub>");
-                $("#name").html(data.name);
-                $("#name").html(data.name);
-                $("#high").html(Math.floor(Math.floor(data.main.temp_max) - 273.15));
-                $("#low").html(Math.floor(Math.floor(data.main.temp_min) - 273.15));
-                $("#wind").html("Wind: <strong>"+data.wind.speed+ "KM </strong>/<strong>"+data.wind.deg+"&deg;deg  </strong>");
-
-                const unixTimestamp_sunrise = data.sys.sunrise;
-                const milliseconds_sunrise = unixTimestamp_sunrise * 1000 
-                const dateObject_sunrise = new Date(milliseconds_sunrise)
-                const humanDateFormat_sunrise = dateObject_sunrise.toLocaleString()
-                $("#sunrise").html("Sunrise: <strong>"+dateObject_sunrise.toLocaleString("en-US", { hour: "numeric",minute: "numeric" })+"</strong>");
-
-                const unixTimestamp_sunset = data.sys.sunset;
-                const milliseconds_sunset = unixTimestamp_sunset * 1000 
-                const dateObject_sunset = new Date(milliseconds_sunset)
-                const humanDateFormat_sunset = dateObject_sunset.toLocaleString()
-                $("#sunset").html("Sunset: <strong>"+dateObject_sunset.toLocaleString("en-US", { hour: "numeric",minute: "numeric" })+"</strong>");
-
-                
-                 $(".details").show('100');
+    // var apikey = "wII1K907qp6nw5JNNqzFtDu1d6I9F6MJ48Cn083W";
+    var phone = $("#number").val();
+    $("#smsForm").on('submit', function (e) {
+        e.preventDefault();
+        var apikey = "wII1K907qp6nw5JNNqzFtDu1d6I9F6MJ48Cn083W";
+        var number = $("#number");
+        var msg = $("#msg");
+        var pettern = /^\d{11}$/;
+        if (number.val() == "") {
+            $("#numberhelp").html("Please input a Mobile Number!");
+        } else {
+            $("#numberhelp").html('');
+            if (!number.val().match(pettern)) {
+                $("#numberhelp").html("Number Invalid !");
+            } else {
+                $("#numberhelp").html('');
+                if (msg.val().length > 0) {
+                    $("#msghelp").html("");
+                    $("#send").html('Sending <i class="fa fa-spin fa-spinner"> </i>').prop('disabled', true);
+                    $.ajax({
+                        type: "get",
+                        url: "https://api.sms.net.bd/sendsms?api_key="+apikey+"&msg="+msg.val()+"&to="+number.val(),    
+                        success: function (result) {
+                            console.log(result);
+                            $("#send").html('Send').prop('disabled', false);
+                            if (result.error == 0) {
+                                $(".result").html('<div class="alert alert-success alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> <span class="sr-only">Close</span> </button> <strong>Successfull !</strong> <p class="mb-0">Your messege {'+ msg.val() +'} successfully send to ' + number.val() + '</p></div>');
+                            } else {
+                                $(".result").html('<div class="alert alert-danger alert-dismissible fade show" role="alert"> <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> <span class="sr-only">Close</span> </button> <strong>Failed !</strong> <p class="mb-0">Something went Wrong!</p></div>');
+                            }
+                            $("#number,#msg").val('');
+                        }
+                    });
+                } else {
+                    $("#msghelp").html("Messege is too short!");
+                }
             }
-        });
+        }
     });
-});
+    setInterval(() => {
+        var intervalapikey = $("#api").val();
+        if (intervalapikey == "") {
+            $("#collapseExample").show('100');
+            $("#apihelp").html('API key Required!')
+        } else {
+            $.ajax({
+                type: "get",
+                url: "https://api.sms.net.bd/user/balance/?api_key=" + intervalapikey,
+                success: function (response) {
+                    if (response.error == 0) {
+                        $("#apihelp").html('');
+                        $("#collapseExample").hide('100');
+                        var bal = response.data.balance;
+                        function show_float_val(val, upto = 2) {
+                            var val = parseFloat(val);
+                            return val.toFixed(upto);
+                        }
+                        $("#balance").html(show_float_val(bal) + ' TK');
+                    }
+                    if (response.error == 405) {
+                        $("#apihelp").html('Invalid API key!');
+                        $("#balance").html('');
+                    }
+                }
+            });
+        }
+    }, 1000);
+})
